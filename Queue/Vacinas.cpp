@@ -14,7 +14,7 @@ struct Pessoa
 
 string vacinaDisponivel()
 {
-    int vacina = rand() % 4 + 1;
+    int vacina = rand() % 5 + 1;
 
     switch (vacina)
     {
@@ -34,11 +34,11 @@ int main()
     srand(time(0));
 
     string opcao;
-    
-    Pessoa pessoa;
+
+    bool terminou = false;
 
     queue<Pessoa> fila;
-
+    int totalVacinados = 0;
     do
     {
         cout << "### Programa de vacinacao ###" << endl;
@@ -50,6 +50,7 @@ int main()
 
         if (opcao == "1")
         {
+            Pessoa pessoa;
             cout << "Informe seu nome: " << endl;
             cin >> pessoa.nome;
 
@@ -58,7 +59,7 @@ int main()
 
             string vacinaATomar = vacinaDisponivel();
             pessoa.vacina = vacinaATomar;
-            
+
             cout << "Vacina disponivel para tomar " << vacinaATomar << endl;
 
             fila.push(pessoa);
@@ -69,6 +70,7 @@ int main()
             {
                 Pessoa paciente = fila.front();
                 fila.pop();
+                totalVacinados++;
 
                 cout << "Aplicando vacina na pessoa:" << endl;
                 cout << "Nome: " << paciente.nome << endl;
@@ -82,13 +84,22 @@ int main()
         }
         else if (opcao == "3")
         {
+            cout << "Vacinados ate o momento " << totalVacinados << endl;
             cout << "Pessoas ainda na fila: " << fila.size() << endl;
         }
         else
         {
-            cout << "Adeus" << endl;
+            terminou = fila.empty();
+            if (terminou)
+            {
+                cout << "Adeus COVID!! Todos foram vacinados" << endl;
+            }
+            else
+            {
+                cout << "Ainda ha pessoas na fila. Necessario vacinar todos os paciente" << endl;
+            }
         }
-    } while (opcao != "4");
+    } while (opcao != "4" || !terminou);
 
     return 0;
 }
