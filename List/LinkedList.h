@@ -15,14 +15,14 @@ public:
     bool empty();
     int size();
     void push_back(Node *node);
-    void push_front(Node *node);
-    void push_index(int index, Node *node);
+    // void push_front(Node *node);
+    // void push_index(int index, Node *node);
 
-    void pop_front();
-    void pop_back();
-    void pop_index(int index);
+    // void pop_front();
+    // void pop_back();
+    // void pop_index(int index);
 
-    Node *back();
+    // Node *back();
     Node *front();
 
     void print_list();

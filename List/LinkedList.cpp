@@ -8,7 +8,7 @@ LinkedList::LinkedList()
 
 bool LinkedList::empty()
 {
-    return size == 0;
+    return _size == 0;
 }
 
 int LinkedList::size()
@@ -21,13 +21,30 @@ void LinkedList::push_back(Node *node)
     if (empty())
     {
         first = node;
-        last = node;        
+        last = node;
     }
     else
     {
         last->next = node;
         last = node;
     }
-    
+
     _size++;
 }
+
+Node *LinkedList::front()
+{
+    return first;
+}
+
+void LinkedList::print_list()
+{
+    Node *temp = front();
+    while (temp)
+    {
+        cout << temp->name << endl;
+
+        temp = temp->next;
+    }
+}
+
