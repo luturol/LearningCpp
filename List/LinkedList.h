@@ -5,7 +5,7 @@ using namespace std;
 struct Node
 {
     string name;
-    Node *next;
+    Node *next = NULL;
 };
 
 class LinkedList
@@ -16,7 +16,7 @@ public:
     int size();
     void push_back(Node *node);
     // void push_front(Node *node);
-    // void push_index(int index, Node *node);
+    void push_index(int index, Node *node);
 
     // void pop_front();
     // void pop_back();

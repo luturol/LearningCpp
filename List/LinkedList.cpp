@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "LinkedList.h"
 
 LinkedList::LinkedList()
@@ -19,7 +18,7 @@ int LinkedList::size()
 void LinkedList::push_back(Node *node)
 {
     if (empty())
-    {
+    {        
         first = node;
         last = node;
     }
@@ -37,14 +36,27 @@ Node *LinkedList::front()
     return first;
 }
 
-void LinkedList::print_list()
-{
-    Node *temp = front();
-    while (temp)
-    {
-        cout << temp->name << endl;
+// void LinkedList::print_list()
+// {
+//     Node *temp = front();
+//     while (temp)
+//     {
+//         cout << temp->name << endl;
 
-        temp = temp->next;
-    }
-}
+//         temp = temp->next;
+//     }
+// }
+
+// void LinkedList::push_index(int index, Node *node)
+// {
+//     if(!empty())
+//     {
+//         Node *temp = front();
+//         if(index == 0)
+//         {
+//             node->next = temp;
+//             front = node;
+//         }
+//     }
+// }
 
